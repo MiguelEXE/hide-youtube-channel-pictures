@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Hide YouTube Channel Pictures
-// @version      1.0.0
+// @version      1.0.1
 // @description  Hide youtube channel pictures
 // @author       MiguelEX3
 // @match        https://www.youtube.com/*
@@ -30,5 +30,5 @@
             }
         });
     });
-    observer.observe(document.body, {subtree: true, childList: true});
+    observer.observe(document, {subtree: true, childList: true});
 })();
