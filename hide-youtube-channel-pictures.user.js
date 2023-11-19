@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Hide YouTube Channel Pictures
-// @version      1.0.1
+// @version      1.0.2
 // @description  Hide youtube channel pictures
 // @author       MiguelEX3
 // @match        https://www.youtube.com/*
@@ -19,13 +19,11 @@
     let observer = new MutationObserver(function(mutations){
         mutations.forEach(function(mutation){
             for(const node of mutation.addedNodes){
-                if(node.id === "avatar"){
-                    console.debug("Channel avatar: ", node);
+                if(node.tagName === "YT-IMG-SHADOW"){
                     node.style.display = "none";
                 }
             }
-            if(mutation.target.id === "avatar"){
-                console.debug("Channel avatar: ", mutation.target);
+            if(mutation.target.tagName === "YT-IMG-SHADOW"){
                 mutation.target.style.display = "none";
             }
         });
